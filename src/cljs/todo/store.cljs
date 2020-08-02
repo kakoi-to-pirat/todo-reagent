@@ -12,4 +12,5 @@
     (swap! todos assoc id {:id id :title title :done false})))
 
 (defn remove-todo [id]
+  (swap! todos-count dec)
   (swap! todos dissoc id))
