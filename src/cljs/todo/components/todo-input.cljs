@@ -11,7 +11,8 @@
 (def escape-key 27)
 
 (defn on-enter [] ((store/add-todo @input-value)
-                   (helpers/log (str "enter: " @input-value))))
+                   (helpers/log (str "enter: " @input-value))
+                   (reset! input-value "")))
 
 (defn on-esc [] (helpers/log "esc"))
 
