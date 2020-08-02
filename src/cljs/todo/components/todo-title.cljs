@@ -1,4 +1,4 @@
 (ns todo-list.components.todo-title)
 
 (defn render []
-  [:h1 "todos"])
+  [:h1 "TODO"])

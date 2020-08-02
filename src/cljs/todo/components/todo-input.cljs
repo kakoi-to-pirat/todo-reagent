@@ -10,7 +10,8 @@
 
 (def escape-key 27)
 
-(defn on-enter [] ((store/add-todo @input-value) (helpers/log "enter")))
+(defn on-enter [] ((store/add-todo @input-value)
+                   (helpers/log (str "enter: " @input-value))))
 
 (defn on-esc [] (helpers/log "esc"))
 
@@ -21,10 +22,11 @@
 
 (defn on-blur [] (helpers/log "blur"))
 
-(defn on-change [value] (reset! input-value value) (helpers/log value))
+(defn on-change [value] (reset! input-value value))
 
 (defn render []
-  [:input {:type "text"
+  [:input {:class "todo-input"
+           :type "text"
            :value @input-value
            :placeholder "What needs to be done?"
            :on-blur #(on-blur)
