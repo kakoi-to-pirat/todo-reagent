@@ -60,6 +60,7 @@ a:hover {
   font-size: .95rem;
   line-height: 1.8;
   margin-bottom: 10px;
+  min-height: 30px;
 }
 
 .todo-item-button {
@@ -69,6 +70,7 @@ a:hover {
   color: #fb3485;
   font-family: 'Lucida Sans Unicode', 'Arial Unicode MS', Arial;
   background: none;
+  cursor: pointer;
 }
 
 .done {
@@ -96,8 +98,10 @@ a:hover {
 [type="checkbox"]:checked + label:before {
   content: '';
   position: absolute;
-  left: 0; top: 0;
-  width: 1.25em; height: 1.25em;
+  left: 0;
+  top: 0.2em;
+  width: 1.25em;
+  height: 1.25em;
   border: 2px solid #ccc;
   background: #fff;
   border-radius: 4px;
@@ -108,7 +112,7 @@ a:hover {
 [type="checkbox"]:checked + label:after {
   content: '\2713\0020';
   position: absolute;
-  top: 0.22em;
+  top: 0.35em;
   left: .22em;
   font-size: 1.3em;
   line-height: 0.8;

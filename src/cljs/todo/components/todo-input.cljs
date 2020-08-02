@@ -12,7 +12,7 @@
 
 (defn on-enter [] ((store/add-todo @input-value)
                    (helpers/log (str "enter: " @input-value))
-                   (reset! input-value "")))
+                   (reset! input-value nil)))
 
 (defn on-esc [] (helpers/log "esc"))
 
