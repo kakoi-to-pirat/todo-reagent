@@ -1,6 +1,6 @@
-# todo
+# TODO list
 
-This is the todo project.
+This is the demo app with todo list. [Demo.](https://enigmatic-sands-22935.herokuapp.com/todo)
 
 ## Development mode
 
