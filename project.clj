@@ -22,7 +22,6 @@
 
   :plugins [[lein-environ "1.1.0"]
             [lein-cljsbuild "1.1.7"]
-            [lein-githooks "0.1.0"]
             [lein-cljfmt "0.6.8"]
             [lein-asset-minifier "0.4.6"
              :exclusions [org.clojure/clojure]]]
@@ -66,10 +65,6 @@
               :source-map true
               :optimizations :none
               :pretty-print  true}}}}
-
-  :githooks {:auto-install true
-             :pre-push ["lein test"]
-             :pre-commit ["lein cljfmt check"]}
 
   :figwheel
   {:http-server-root "public"
