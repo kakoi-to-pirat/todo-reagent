@@ -1,6 +1,6 @@
 (defproject todo "0.1.0-SNAPSHOT"
-  :description "FIXME: write description"
-  :url "http://example.com/FIXME"
+  :description "TODO list demo app"
+  :url "https://github.com/kakoi-to-pirat/todo-reagent"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 
@@ -22,6 +22,8 @@
 
   :plugins [[lein-environ "1.1.0"]
             [lein-cljsbuild "1.1.7"]
+            [lein-githooks "0.1.0"]
+            [lein-cljfmt "0.6.8"]
             [lein-asset-minifier "0.4.6"
              :exclusions [org.clojure/clojure]]]
 
@@ -63,23 +65,19 @@
               :output-dir "target/cljsbuild/public/js/out"
               :source-map true
               :optimizations :none
-              :pretty-print  true}}
+              :pretty-print  true}}}}
 
-
-
-            }
-   }
+  :githooks {:auto-install true
+             :pre-push ["lein test"]
+             :pre-commit ["lein cljfmt check"]}
 
   :figwheel
   {:http-server-root "public"
    :server-port 3449
    :nrepl-port 7002
-   :nrepl-middleware [cider.piggieback/wrap-cljs-repl
-                      ]
+   :nrepl-middleware [cider.piggieback/wrap-cljs-repl]
    :css-dirs ["resources/public/css"]
    :ring-handler todo.handler/app}
-
-
 
   :profiles {:dev {:repl-options {:init-ns todo.repl}
                    :dependencies [[cider/piggieback "0.5.0"]
@@ -89,13 +87,10 @@
                                   [prone "2020-01-17"]
                                   [figwheel-sidecar "0.5.20"]
                                   [nrepl "0.7.0"]
-                                  [pjstadig/humane-test-output "0.10.0"]
-                                  
- ]
+                                  [pjstadig/humane-test-output "0.10.0"]]
 
                    :source-paths ["env/dev/clj"]
-                   :plugins [[lein-figwheel "0.5.20"]
-]
+                   :plugins [[lein-figwheel "0.5.20"]]
 
                    :injections [(require 'pjstadig.humane-test-output)
                                 (pjstadig.humane-test-output/activate!)]
